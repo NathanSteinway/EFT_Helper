@@ -5,27 +5,22 @@ import os
 
 db = SQLAlchemy()
 
-# Da Plan
-# take hwat you have now, then...
-# populate w/ seed database
-# build out server, view functions, html, jinja, login, etc
-# check rubric for requirements and calc
-# this should put you into a graduating threshold, then you can add hideout stuff for Wednesday
-# hideout stuff comes later
-
 class User_Items(db.Model):
     
     __tablename__ = 'user_items'
     
     user_items_id = db.Column(db.Integer, primary_key=True)
+    # db.ForeignKey preps db.relationship() for connecting columns between tables
+        # User is made
+        # Connection is made
+            # db.relationship attribute refers to table w/ foreign keys
+            # db.relationship connects relevant foreign keys to the designated location
+            # db.relationship backref lets User_Items refer to Items to retrieve data
     user_id = db.Column(db.Integer, db.ForeignKey('users.user_id'))
     item_id = db.Column(db.Integer, db.ForeignKey('items.item_id'))
     quantity = db.Column(db.Integer, nullable=False, default=0)
 
 class User(db.Model):
-
-    # rename this to plural
-    # user is reserved keyword in postgres
 
     __tablename__ = 'users'
 
@@ -34,7 +29,17 @@ class User(db.Model):
     email = db.Column(db.String, unique=True, nullable=False)
     password = db.Column(db.String, unique=True, nullable=False)
 
-    # first arg searches for a foreign key in designated model then connects them
+    # stash attribute in User class refers to User_Items class for foreign key
+    # backref references this instance of this class to help shorten queries
+
+    # example...
+    # jared.stash[0].quantity
+        # grab jared class obj
+        # accesses stash
+        # [0] grabs the first item in the list, in this case Bolts
+        # since stash[0] is referencing User_Items to return a list of class objects stored in User_Items (Bolts, Nuts, etc), part of that information will be quantity column
+        # drill into User_Items class and return the quantity of the quiried item, which is found using the Items class relationship below
+
     stash = db.relationship('User_Items', lazy=False, backref='user')
 
     def __repr__(self):
@@ -46,6 +51,18 @@ class Items(db.Model):
 
     item_id = db.Column(db.Integer, primary_key=True)
     item_name = db.Column(db.String(50), unique=True, nullable=False)
+
+    # stash attribute in User class refers to User_Items class for foreign key
+    # backref references this instance of this class to help shorten queries
+
+    # example...
+        # jared=User.query.first()
+        # jared.stash[0].item.item_name
+            # grab jared, access his stash using stash attribute in User class
+            # grab the item @ [0]
+            # backref in Items, named item, allows the User_Items object to refer to the Items object
+            # retrieve the desired attribute
+            # User.User_Items.Items(backref).attribute
 
     stash = db.relationship('User_Items', lazy=False, backref='item')
 
