@@ -51,6 +51,7 @@ class Items(db.Model):
 
     item_id = db.Column(db.Integer, primary_key=True)
     item_name = db.Column(db.String(50), unique=True, nullable=False)
+    item_category = db.Column(db.String(50), nullable=False)
 
     # stash attribute in User class refers to User_Items class for foreign key
     # backref references this instance of this class to help shorten queries
