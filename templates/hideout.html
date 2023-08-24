@@ -11,61 +11,33 @@
             <div class="loot_category">
                 <h1>Hardware</h1>
                 <ul>
-                    <li>test</li>
-                    <li>test</li>
-                    <li>test</li>
-                    <li>test</li>
-                    <li>test</li>
-                    <li>test</li>
-                    <li>test</li>
-                    <li>test</li>
-                    <li>test</li>
-                    <li>test</li>
+                    {% for item in hardware %}
+                    <li>{{ item.item_name }}</li>
+                    {% endfor %}
                 </ul>
             </div>
             <div class="loot_category">
                 <h1>Electronics</h1>
                 <ul>
-                    <li>test</li>
-                    <li>test</li>
-                    <li>test</li>
-                    <li>test</li>
-                    <li>test</li>
-                    <li>test</li>
-                    <li>test</li>
-                    <li>test</li>
-                    <li>test</li>
-                    <li>test</li>
+                    {% for item in electronics %}
+                    <li>{{ item.item_name }}</li>
+                    {% endfor %}
                 </ul>
             </div>
             <div class="loot_category">
                 <h1>Medical</h1>
                 <ul>
-                    <li>test</li>
-                    <li>test</li>
-                    <li>test</li>
-                    <li>test</li>
-                    <li>test</li>
-                    <li>test</li>
-                    <li>test</li>
-                    <li>test</li>
-                    <li>test</li>
-                    <li>test</li>
+                    {% for item in medical %}
+                    <li>{{ item.item_name }}</li>
+                    {% endfor %}
                 </ul>
             </div>
             <div class="loot_category">
                 <h1>Valuables</h1>
                 <ul>
-                    <li>test</li>
-                    <li>test</li>
-                    <li>test</li>
-                    <li>test</li>
-                    <li>test</li>
-                    <li>test</li>
-                    <li>test</li>
-                    <li>test</li>
-                    <li>test</li>
-                    <li>test</li>
+                    {% for item in valuables %}
+                    <li>{{ item.item_name }}</li>
+                    {% endfor %}
                 </ul>
             </div>
         </div>

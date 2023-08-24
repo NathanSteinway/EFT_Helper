@@ -1,10 +1,13 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request, session, flash, redirect
 from model import connect_to_db, db, User, Items, User_Items
+from jinja2 import StrictUndefined
 import os
+import crud
 
 app = Flask(__name__)
 
 app.secret_key = os.environ["POSTGRES_URI"]
+app.jinja_env.undefined = StrictUndefined
 
 @app.route("/")
 def home():
@@ -13,7 +16,15 @@ def home():
 @app.route("/hideout")
 def hideout():
     hardware = Items.query.filter_by(item_category='Hardware')
-    return render_template("hideout.html", hardware=hardware)
+    electronics = Items.query.filter_by(item_category='Electronics')
+    medical = Items.query.filter_by(item_category='Medical')
+    valuables = Items.query.filter_by(item_category='Valuables')
+    return render_template("hideout.html", 
+        hardware=hardware,
+        electronics=electronics,
+        medical=medical,
+        valuables=valuables
+    )
 
 @app.route("/quests")
 def quests():
