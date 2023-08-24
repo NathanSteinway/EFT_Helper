@@ -12,7 +12,9 @@
                 <h1>Hardware</h1>
                 <ul>
                     {% for item in hardware %}
-                    <li>{{ item.item_name }}</li>
+                        <li>
+                            {{ item.item_name }} - 0 / {{item.req_quantity}}
+                        </li>
                     {% endfor %}
                 </ul>
             </div>

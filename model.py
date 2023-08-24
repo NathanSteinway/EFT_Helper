@@ -18,6 +18,8 @@ class User_Items(db.Model):
             # db.relationship backref lets User_Items refer to Items to retrieve data
     user_id = db.Column(db.Integer, db.ForeignKey('users.user_id'))
     item_id = db.Column(db.Integer, db.ForeignKey('items.item_id'))
+
+    # users will update this w/ the click of an up or down arrow...
     quantity = db.Column(db.Integer, nullable=False, default=0)
 
 class User(db.Model):
@@ -52,6 +54,10 @@ class Items(db.Model):
     item_id = db.Column(db.Integer, primary_key=True)
     item_name = db.Column(db.String(50), unique=True, nullable=False)
     item_category = db.Column(db.String(50), nullable=False)
+
+    # this is required in order to prevent hard-coding these values
+    # BSG /does/ change this sometimes so better to be safe than sorry
+    req_quantity = db.Column(db.Integer, nullable=False)
 
     # stash attribute in User class refers to User_Items class for foreign key
     # backref references this instance of this class to help shorten queries

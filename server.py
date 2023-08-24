@@ -15,15 +15,17 @@ def home():
 
 @app.route("/hideout")
 def hideout():
+
     hardware = Items.query.filter_by(item_category='Hardware')
     electronics = Items.query.filter_by(item_category='Electronics')
     medical = Items.query.filter_by(item_category='Medical')
     valuables = Items.query.filter_by(item_category='Valuables')
+
     return render_template("hideout.html", 
         hardware=hardware,
         electronics=electronics,
         medical=medical,
-        valuables=valuables
+        valuables=valuables,
     )
 
 @app.route("/quests")
