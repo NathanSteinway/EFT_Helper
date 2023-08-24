@@ -1,0 +1,68 @@
+@font-face {
+    font-family: Bender;
+    src:url('../static/bender/Bender/Jovanny\ Lemonad\ -\ Bender.otf')
+}
+
+body {
+    font-family: Bender;
+    background-color: #181818;
+    color: white;
+}
+
+nav {
+    display:flex;
+    justify-content: center;
+
+}
+
+nav ul {
+    display:flex;
+    align-items: center;
+    text-align: center;
+    list-style-type: none;
+}
+
+nav ul li a {
+    color:#998765;
+    font-size: xx-large;
+    border-bottom: solid;
+    padding-bottom: 5px;
+    padding-left: 25px;
+    padding-right: 25px;
+    text-decoration: none;
+}
+
+a:hover {
+    background-color: #9a8866;
+}
+
+main {
+    height: 80vh;
+    margin-left: 250px;
+    margin-right: 250px;
+    padding-top: 50px;
+}
+
+main h1 {
+    text-align: center;
+}
+
+.loot_container {
+    display:flex;
+    justify-content: center;
+    gap: 175px;
+}
+
+.loot_category {
+    display:block;
+    flex-direction: column;
+}
+
+.loot_category ul {
+    padding: 0;
+}
+
+.loot_category ul li {
+    list-style-type: none;
+    text-align: start;
+}

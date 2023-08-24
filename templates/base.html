@@ -1,26 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    {% block head %}
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="../static/styles.css">
+    {% endblock head %}
 </head>
 <body>
 
-    {% start block %}
+    <!-- block to be used in every template -->
+    {% block nav %}
         <nav>
             <ul>
-                <li>Hideout</li>
-                <li>Quests</li>
-                <li>Ammo</li>
-                <li>Armor</li>
+                <li>
+                    <a href="/hideout">Hideout</a>
+                </li>
+
+                <li>
+                   <a href="/quests">Quests</a>
+                </li>
+                <li>
+                    <a href="/ammo">Ammo</a>
+                </li>
+                <li>
+                    <a href="/armor">Armor</a>
+                </li>
             </ul>
         </nav>
-    {% endblock %}
+    {% endblock nav %}
 
-    <h1>EFT RAID PLANNER</h1>
-    <br>
-    <h2>HIDEOUT</h2>
-    <h2>QUEST</h2>
+    <!-- block to be overwritten in each template -->
+    {% block content %}{% endblock content %}
 </body>
 </html>
