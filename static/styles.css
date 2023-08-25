@@ -32,7 +32,7 @@ nav ul li a {
     text-decoration: none;
 }
 
-.loginbtn {
+.login-btn {
     color: #998765;
     font-size: larger;
     border-bottom: none;
@@ -43,11 +43,26 @@ nav ul li a {
     text-align: center;
 }
 
+.register_title {
+    text-align: center;
+}
+
 .login_form {
     text-align: center;
 }
 
-.logoutbtn {
+.register_form {
+    text-align: center;
+}
+
+.logout-btn {
+    color: #998765;
+    font-size: larger;
+    border-bottom: none;
+    text-decoration: none;
+}
+
+.register-btn {
     color: #998765;
     font-size: larger;
     border-bottom: none;

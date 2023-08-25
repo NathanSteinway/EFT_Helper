@@ -2,10 +2,10 @@ from flask import Flask, render_template, redirect, flash
 from model import connect_to_db, db, User, Items, User_Items
 from jinja2 import StrictUndefined
 
-from flask_login import LoginManager, UserMixin, login_user, login_required, logout_user, current_user
+from flask_login import LoginManager, login_user, login_required, logout_user, current_user
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, SubmitField
-from wtforms.validators import InputRequired, Length, ValidationError
+from wtforms.validators import InputRequired, Length
 
 import os
 import crud
@@ -24,19 +24,22 @@ def load_user(user_id):
 
 class RegisterForm(FlaskForm):
     username = StringField(
-        validators=[InputRequired(), Length(min=4, max=20)], render_kw={"placeholder": "Username"})
+        validators=[InputRequired(), Length(min=1, max=20)], render_kw={"placeholder": "Username"})
+    
+    email = StringField(
+        validators=[InputRequired(), Length(min=1, max=20)], render_kw={"placeholder": "Email"})
 
     password = PasswordField(
-        validators=[InputRequired(), Length(min=8, max=20)], render_kw={"placeholder": "Password"})
+        validators=[InputRequired(), Length(min=12, max=20)], render_kw={"placeholder": "Password"})
 
     submit = SubmitField('Register')
 
 class LoginForm(FlaskForm):
     username = StringField(
-        validators=[InputRequired(), Length(min=4, max=20)], render_kw={"placeholder": "Username"})
+        validators=[InputRequired(), Length(min=1, max=20)], render_kw={"placeholder": "Username"})
 
     password = PasswordField(
-        validators=[InputRequired(), Length(min=8, max=20)], render_kw={"placeholder": "Password"})
+        validators=[InputRequired(), Length(min=12, max=20)], render_kw={"placeholder": "Password"})
 
     submit = SubmitField('Login')
 
@@ -65,8 +68,11 @@ def register():
 
     if form.validate_on_submit():
 
-        new_user = User(user_name=form.username.data, password=form.password.data)
-        db.session.add(new_user)
+        all_items = Items.query.all()
+        new_user = User(user_name=form.username.data, email=form.email.data, password=form.password.data)
+        new_stash = User_Items(user_id=new_user.user_id, item_id=all_items)
+
+        db.session.add(new_user, new_stash)
         db.session.commit()
 
         return redirect('/hideout')

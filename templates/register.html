@@ -1,5 +1,12 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <h1>JOIN US GAMER</h1>
+    <h1 class="register_title">JOIN US GAMER</h1>
+    <form method="POST" action="" class="register_form">
+        {{form.hidden_tag()}}
+        {{form.username}}
+        {{form.email}}
+        {{form.password}}
+        {{form.submit}}
+    </form>
 {% endblock content %}
