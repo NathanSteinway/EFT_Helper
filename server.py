@@ -89,6 +89,7 @@ def logout():
 @app.route("/hideout")
 def hideout():
 
+    
     hardware = Items.query.filter_by(item_category='Hardware')
     electronics = Items.query.filter_by(item_category='Electronics')
     medical = Items.query.filter_by(item_category='Medical')

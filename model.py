@@ -21,7 +21,7 @@ class User_Items(db.Model):
     item_id = db.Column(db.Integer, db.ForeignKey('items.item_id'))
 
     # users will update this w/ the click of an up or down arrow...
-    quantity = db.Column(db.Integer, nullable=False, default=0)
+    quantity = db.Column(db.Integer, default=0)
 
 class User(UserMixin, db.Model):
 
@@ -43,14 +43,11 @@ class User(UserMixin, db.Model):
         # since stash[0] is referencing User_Items to return a list of class objects stored in User_Items (Bolts, Nuts, etc), part of that information will be quantity column
         # drill into User_Items class and return the quantity of the quiried item, which is found using the Items class relationship below
 
-    stash = db.relationship('User_Items', lazy=False, backref='user')
+    stash = db.relationship('User_Items', lazy='dynamic', backref='user')
 
     # added this so that forms can retrieve user_id
     def get_id(self):
         return (self.user_id)
-
-    def __repr__(self):
-        return f"<User user_id={self.user_id} email={self.email} user_items={self.user_items}>"
 
 class Items(db.Model):
     
@@ -62,6 +59,7 @@ class Items(db.Model):
 
     # this is required in order to prevent hard-coding these values
     # BSG /does/ change this sometimes so better to be safe than sorry
+
     req_quantity = db.Column(db.Integer, nullable=False)
 
     # stash attribute in User class refers to User_Items class for foreign key
@@ -76,7 +74,7 @@ class Items(db.Model):
             # retrieve the desired attribute
             # User.User_Items.Items(backref).attribute
 
-    stash = db.relationship('User_Items', lazy=False, backref='item')
+    stash = db.relationship('User_Items', lazy='dynamic', backref='item')
 
     def __repr__(self):
         return f"<Items item_name={self.item_name}"
