@@ -11,9 +11,9 @@
             <div class="loot_category">
                 <h1>Hardware</h1>
                 <ul>
-                    {% for item in hardware %}
+                    {% for user_item in hardware %}
                         <li>
-                            {{ item.item_name }}  {{item.req_quantity}}
+                            {{ user_item.item.item_name }}  {{user_item.quantity}} / {{user_item.item.req_quantity}}
                         </li>
                     {% endfor %}
                 </ul>
@@ -21,9 +21,9 @@
             <div class="loot_category">
                 <h1>Electronics</h1>
                 <ul>
-                    {% for item in electronics %}
+                    {% for user_item in electronics %}
                     <li>
-                        {{ item.item_name }} x {{item.req_quantity}}
+                        {{ user_item.item.item_name }}  {{user_item.quantity}} / {{user_item.item.req_quantity}}
                     </li>
                     {% endfor %}
                 </ul>
@@ -31,9 +31,9 @@
             <div class="loot_category">
                 <h1>Medical</h1>
                 <ul>
-                    {% for item in medical %}
+                    {% for user_item in medical %}
                     <li>
-                        {{ item.item_name }} x {{item.req_quantity}}
+                        {{ user_item.item.item_name }}  {{user_item.quantity}} / {{user_item.item.req_quantity}}
                     </li>
                     {% endfor %}
                 </ul>
@@ -41,9 +41,9 @@
             <div class="loot_category">
                 <h1>Valuables</h1>
                 <ul>
-                    {% for item in valuables %}
+                    {% for user_item in valuables %}
                     <li>
-                        {{ item.item_name }} x {{item.req_quantity}}
+                        {{ user_item.item.item_name }}  {{user_item.quantity}} / {{user_item.item.req_quantity}}
                     </li>
                     {% endfor %}
                 </ul>

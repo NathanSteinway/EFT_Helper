@@ -94,10 +94,28 @@ def logout():
 def hideout():
 
     
-    hardware = Items.query.filter_by(item_category='Hardware')
-    electronics = Items.query.filter_by(item_category='Electronics')
-    medical = Items.query.filter_by(item_category='Medical')
-    valuables = Items.query.filter_by(item_category='Valuables')
+    # hardware = Items.query.filter_by(item_category='Hardware')
+    # electronics = Items.query.filter_by(item_category='Electronics')
+    # medical = Items.query.filter_by(item_category='Medical')
+    # valuables = Items.query.filter_by(item_category='Valuables')
+
+    # update quantity of value on specific user item
+    # user item being in this for loop below
+
+    hardware = []
+    electronics = []
+    medical = []
+    valuables = []
+
+    for user_item in current_user.stash:
+        if user_item.item.item_category == 'Hardware':
+            hardware.append(user_item)
+        elif user_item.item.item_category == 'Electronics':
+            electronics.append(user_item)
+        elif user_item.item.item_category == 'Medical':
+            medical.append(user_item)
+        elif user_item.item.item_category == 'Valuables':
+            valuables.append(user_item)
 
     return render_template("hideout.html", 
         hardware=hardware,

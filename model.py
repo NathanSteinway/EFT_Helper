@@ -23,7 +23,7 @@ class User_Items(db.Model):
     # users will update this w/ the click of an up or down arrow...
     quantity = db.Column(db.Integer, default=0)
 
-class User(UserMixin, db.Model):
+class User(db.Model, UserMixin):
 
     __tablename__ = 'users'
 
@@ -43,11 +43,7 @@ class User(UserMixin, db.Model):
         # since stash[0] is referencing User_Items to return a list of class objects stored in User_Items (Bolts, Nuts, etc), part of that information will be quantity column
         # drill into User_Items class and return the quantity of the quiried item, which is found using the Items class relationship below
 
-    
-    # create custom method in user
-    # needs to query use
-
-    stash = db.relationship('User_Items', lazy='dynamic', backref='user')
+    stash = db.relationship('User_Items', lazy=False, backref='user')
 
     # added this so that forms can retrieve user_id
     def get_id(self):
