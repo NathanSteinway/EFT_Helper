@@ -70,9 +70,13 @@ def register():
 
         all_items = Items.query.all()
         new_user = User(user_name=form.username.data, email=form.email.data, password=form.password.data)
-        new_stash = User_Items(user_id=new_user.user_id, item_id=all_items)
 
-        db.session.add(new_user, new_stash)
+        db.session.add(new_user)
+        db.session.commit()
+
+        for item in all_items:
+            new_user_item = User_Items(user_id=new_user.user_id, item_id=item.item_id)
+            db.session.add(new_user_item)
         db.session.commit()
 
         return redirect('/hideout')

@@ -69,6 +69,11 @@ nav ul li a {
     text-decoration: none;
 }
 
+.log-stuff {
+    position: absolute;
+    padding-left: 600px;
+}
+
 main {
     height: 80vh;
     margin-left: 250px;
@@ -83,20 +88,29 @@ main h1 {
 .loot_container {
     display:flex;
     justify-content: center;
-    gap: 175px;
+    gap: 25px;
 }
 
 .loot_category {
     display:block;
     flex-direction: column;
+    border-style: groove;
+    border-color:#998765;
+    width: 300px;
 }
 
+.loot_category h1 {
+    color: #998765;
+    font-size: xx-large;
+    border-bottom: solid;
+    padding-bottom: 25px;
+}
 .loot_category ul {
     padding: 0;
 }
 
 .loot_category ul li {
     list-style-type: none;
-    text-align: start;
+    padding-left: 25px;
 }
 

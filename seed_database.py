@@ -89,13 +89,13 @@ with server.app.app_context():
     golden_neck_chain = Items(item_name='Golden Neck Chain', item_category='Valuables', req_quantity=8)
     roler = Items(item_name='Roler', item_category='Valuables', req_quantity=4)
 
-    db.session.add_all([
-        # users
-        jared,
+    test_users = [        jared,
         jason,
         javi,
         randy,
-        ben,
+        ben,]
+    
+    test_items = [
 
         # items
         analog_thermometer,
@@ -151,21 +151,28 @@ with server.app.app_context():
         gold_skull_ring,
         golden_neck_chain,
         roler
+    ]
 
-
-    ])
+    db.session.add_all(test_users)
+    db.session.add_all(test_items)
     
+    db.session.commit()
+
+    for item in test_items:
+        for user in test_users:
+            new_user_item = User_Items(user_id=user.user_id, item_id=item.item_id)
+            db.session.add(new_user_item)
     db.session.commit()
 
     # 5 stashes
 
-    jared_stash = User_Items(user_id=jared.user_id, item_id=analog_thermometer.item_id, quantity=5)
-    jason_stash = User_Items(user_id=jason.user_id, item_id=a_pack_of_nails.item_id, quantity=2)
-    javi_stash = User_Items(user_id=javi.user_id, item_id=bolts.item_id, quantity=4)
-    randy_stash = User_Items(user_id=randy.user_id, item_id=corrugated_hose.item_id, quantity=10)
-    ben_stash = User_Items(user_id=ben.user_id, item_id=electric_drill.item_id, quantity=8)
+    # jared_stash = User_Items(user_id=jared.user_id, item_id=analog_thermometer.item_id, quantity=5)
+    # jason_stash = User_Items(user_id=jason.user_id, item_id=a_pack_of_nails.item_id, quantity=2)
+    # javi_stash = User_Items(user_id=javi.user_id, item_id=bolts.item_id, quantity=4)
+    # randy_stash = User_Items(user_id=randy.user_id, item_id=corrugated_hose.item_id, quantity=10)
+    # ben_stash = User_Items(user_id=ben.user_id, item_id=electric_drill.item_id, quantity=8)
 
-    db.session.add_all([jared_stash, jason_stash, javi_stash, randy_stash, ben_stash])
-    db.session.commit()
+    # db.session.add_all([jared_stash, jason_stash, javi_stash, randy_stash, ben_stash])
+    # db.session.commit()
 
 
