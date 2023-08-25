@@ -47,6 +47,13 @@ nav ul li a {
     text-align: center;
 }
 
+.logoutbtn {
+    color: #998765;
+    font-size: larger;
+    border-bottom: none;
+    text-decoration: none;
+}
+
 main {
     height: 80vh;
     margin-left: 250px;

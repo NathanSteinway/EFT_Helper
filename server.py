@@ -22,12 +22,21 @@ login_manager.init_app(app)
 def load_user(user_id):
     return User.query.get(int(user_id))
 
-class LoginForm(FlaskForm):
-    username = StringField(validators=[
-                           InputRequired(), Length(min=4, max=20)], render_kw={"placeholder": "Username"})
+class RegisterForm(FlaskForm):
+    username = StringField(
+        validators=[InputRequired(), Length(min=4, max=20)], render_kw={"placeholder": "Username"})
 
-    password = PasswordField(validators=[
-                             InputRequired(), Length(min=8, max=20)], render_kw={"placeholder": "Password"})
+    password = PasswordField(
+        validators=[InputRequired(), Length(min=8, max=20)], render_kw={"placeholder": "Password"})
+
+    submit = SubmitField('Register')
+
+class LoginForm(FlaskForm):
+    username = StringField(
+        validators=[InputRequired(), Length(min=4, max=20)], render_kw={"placeholder": "Username"})
+
+    password = PasswordField(
+        validators=[InputRequired(), Length(min=8, max=20)], render_kw={"placeholder": "Password"})
 
     submit = SubmitField('Login')
 
@@ -45,8 +54,31 @@ def login():
 
         login_user(user)
 
+        flash('You are logged in.')
+
         return redirect("/hideout")
     return render_template('login.html', form=form)
+
+@app.route('/register', methods=['GET', 'POST'])
+def register():
+    form = RegisterForm()
+
+    if form.validate_on_submit():
+
+        new_user = User(user_name=form.username.data, password=form.password.data)
+        db.session.add(new_user)
+        db.session.commit()
+
+        return redirect('/hideout')
+    
+    return render_template('register.html', form=form)
+
+@app.route('/logout', methods=['GET', 'POST'])
+@login_required
+def logout():
+    logout_user()
+    flash('You are logged out.')
+    return redirect('/login')
 
 @app.route("/hideout")
 def hideout():
