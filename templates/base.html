@@ -12,23 +12,30 @@
 
     <!-- block to be used in every template -->
     {% block nav %}
-        <nav>
-            <ul>
-                <li>
-                    <a href="/hideout">Hideout</a>
-                </li>
+        <div>
+            <nav>
+                <ul>
+                    <li>
+                        <a href="/hideout">Hideout</a>
+                    </li>
+    
+                    <li>
+                       <a href="/quests">Quests</a>
+                    </li>
+                    <li>
+                        <a href="/ammo">Ammo</a>
+                    </li>
+                    <li>
+                        <a href="/armor">Armor</a>
+                    </li>
+                    <li>
+                        <a href="{{url_for('login')}}" class="loginbtn">Login</a>
+                    </li>
+                </ul>
+            </nav>
+            
+        </div>
 
-                <li>
-                   <a href="/quests">Quests</a>
-                </li>
-                <li>
-                    <a href="/ammo">Ammo</a>
-                </li>
-                <li>
-                    <a href="/armor">Armor</a>
-                </li>
-            </ul>
-        </nav>
     {% endblock nav %}
 
     <!-- block to be overwritten in each template -->

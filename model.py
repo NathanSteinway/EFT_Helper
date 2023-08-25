@@ -1,5 +1,6 @@
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
+from flask_login import UserMixin
 
 import os
 
@@ -22,7 +23,7 @@ class User_Items(db.Model):
     # users will update this w/ the click of an up or down arrow...
     quantity = db.Column(db.Integer, nullable=False, default=0)
 
-class User(db.Model):
+class User(UserMixin, db.Model):
 
     __tablename__ = 'users'
 
@@ -43,6 +44,10 @@ class User(db.Model):
         # drill into User_Items class and return the quantity of the quiried item, which is found using the Items class relationship below
 
     stash = db.relationship('User_Items', lazy=False, backref='user')
+
+    # added this so that forms can retrieve user_id
+    def get_id(self):
+        return (self.user_id)
 
     def __repr__(self):
         return f"<User user_id={self.user_id} email={self.email} user_items={self.user_items}>"

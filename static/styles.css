@@ -32,8 +32,19 @@ nav ul li a {
     text-decoration: none;
 }
 
-a:hover {
-    background-color: #9a8866;
+.loginbtn {
+    color: #998765;
+    font-size: larger;
+    border-bottom: none;
+    text-decoration: none;
+}
+
+.login_title {
+    text-align: center;
+}
+
+.login_form {
+    text-align: center;
 }
 
 main {
@@ -66,3 +77,4 @@ main h1 {
     list-style-type: none;
     text-align: start;
 }
+

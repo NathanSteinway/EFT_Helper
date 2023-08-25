@@ -1,0 +1,21 @@
+
+{% extends "base.html" %}
+
+{% block head %}
+    {{ super() }}
+{% endblock head %} 
+
+{% block content %}
+    <h1 class="login_title">LOGIN PAGE</h1>
+    <form method="POST" action="" class="login_form">
+        {{form.hidden_tag()}}
+        {{form.username}}
+        {{form.password}}
+        {{form.submit}}
+    </form>
+    <h2>
+        {% if current_user.is_authenticated %}
+            Hi {{ current_user.user_name }}!
+        {% endif %}
+    </h2>
+{% endblock content %}
