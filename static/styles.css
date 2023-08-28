@@ -11,15 +11,27 @@ body {
 
 nav {
     display:flex;
-    justify-content: center;
+    justify-content: space-between;
+}
 
+nav h1 {
+    padding-left: 15px;
 }
 
 nav ul {
     display:flex;
+    justify-content: space-between;
     align-items: center;
     text-align: center;
     list-style-type: none;
+    padding-left: 30px;
+}
+
+nav div {
+    display:flex;
+    list-style-type: none;
+    align-items: center;
+    text-align:center;
 }
 
 nav ul li a {
@@ -30,6 +42,15 @@ nav ul li a {
     padding-left: 25px;
     padding-right: 25px;
     text-decoration: none;
+}
+
+.log-stuff {
+    display:flex;
+    gap: 15px;
+    padding-right: 15px;
+    align-items: center;
+    text-align: center;
+    list-style-type: none;
 }
 
 .login-btn {
@@ -69,11 +90,7 @@ nav ul li a {
     text-decoration: none;
 }
 
-.log-stuff {
-    position: absolute;
-    padding-left: 600px;
-}
-
+/* HIDEOUT PAGE --------------------------------------------------------------------------- */
 main {
     height: 80vh;
     margin-left: 250px;
@@ -113,4 +130,21 @@ main h1 {
     list-style-type: none;
     padding-left: 25px;
 }
+
+/* AMMO PAGE --------------------------------------------------------------------------- */
+
+.ammo-main {
+    justify-content: center;
+    align-items: center;
+}
+
+
+.wikitable {
+    border: 1px solid #a2a9b1;
+    margin: 1em 0;
+}
+/* ARMOR PAGE -------------------------------------------------------------------------- */
+/* QUEST PAGE -------------------------------------------------------------------------- */
+
+
 

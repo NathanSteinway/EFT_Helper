@@ -14,26 +14,48 @@
     {% block nav %}
         <div>
             <nav>
+                <div>
+
+                    <h1>EFT HELPER</h1>
+
+                </div>
                 <ul>
+
                     <li>
                         <a href="/hideout">Hideout</a>
                     </li>
     
                     <li>
-                       <a href="/quests">Quests</a>
+                    <a href="/quests">Quests</a>
                     </li>
+
                     <li>
                         <a href="/ammo">Ammo</a>
                     </li>
+
                     <li>
                         <a href="/armor">Armor</a>
                     </li>
-                    <li class="log-stuff">
-                        <a href="{{url_for('login')}}" class="login-btn">Login</a>
-                        <a href="{{url_for('logout')}}" class="logout-btn">Logout</a>
-                        <a href="{{url_for('register')}}" class="register-btn">Register</a>
-                    </li>
+
                 </ul>
+
+                <div class="log-stuff">
+
+                    {% if current_user.is_authenticated %}
+                        <li>
+                            <a href="{{url_for('logout')}}" class="logout-btn">Logout</a>
+                        </li>
+                    {% else %}
+                        <li>
+                            <a href="{{url_for('login')}}" class="login-btn">Login</a>
+                        </li>
+
+                        <li>
+                            <a href="{{url_for('register')}}" class="register-btn">Register</a>
+                        </li>
+                    {% endif %}
+                </div>
+
             </nav>
             
         </div>
