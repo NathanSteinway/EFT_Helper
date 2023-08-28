@@ -6,7 +6,17 @@
 {% endblock head %} 
 
 {% block content %}
-    <h1 class="login_title">LOGIN PAGE</h1>
+    <h1 class="login_title">
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+            <ul class=flashes>
+                {% for message in messages %}
+                <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+        {% endwith %}
+    </h1>
     <form method="POST" action="" class="login_form">
         {{form.hidden_tag()}}
         {{form.username}}

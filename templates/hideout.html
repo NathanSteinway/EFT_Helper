@@ -6,6 +6,17 @@
 
 {% block content %}
     <main>
+
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+            <ul class=flashes>
+                {% for message in messages %}
+                <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+        {% endwith %}
+
         <h1>HIDEOUT MATERIALS</h1>
         <div class="loot_container">
             <div class="loot_category">

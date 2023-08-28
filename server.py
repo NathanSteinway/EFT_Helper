@@ -58,8 +58,6 @@ def login():
 
         login_user(user)
 
-        flash('You are logged in.')
-
         return redirect("/hideout")
     return render_template('login.html', form=form)
 
@@ -88,13 +86,16 @@ def register():
 @login_required
 def logout():
     logout_user()
-    flash('You are logged out.')
     return redirect('/login')
 
 @app.route("/hideout")
 def hideout():
 
-    
+    if current_user.is_authenticated == False:        
+        flash('Log in to view your hideout!')
+        return redirect("/login")
+
+
     # hardware = Items.query.filter_by(item_category='Hardware')
     # electronics = Items.query.filter_by(item_category='Electronics')
     # medical = Items.query.filter_by(item_category='Medical')

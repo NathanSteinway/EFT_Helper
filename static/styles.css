@@ -3,6 +3,14 @@
     src:url('../static/bender/Bender/Jovanny\ Lemonad\ -\ Bender.otf')
 }
 
+.flashes {
+    text-align: center;
+    padding-top: 15px;
+    list-style-type: none;
+    font-size: xx-large;
+
+}
+
 body {
     font-family: Bender;
     background-color: #181818;
