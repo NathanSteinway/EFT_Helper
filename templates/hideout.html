@@ -7,16 +7,6 @@
 {% block content %}
     <main>
 
-        {% with messages = get_flashed_messages() %}
-            {% if messages %}
-            <ul class=flashes>
-                {% for message in messages %}
-                <li>{{ message }}</li>
-                {% endfor %}
-            </ul>
-            {% endif %}
-        {% endwith %}
-
         <h1>HIDEOUT MATERIALS</h1>
         <div class="loot_container">
             <div class="loot_category">
@@ -24,7 +14,11 @@
                 <ul>
                     {% for user_item in hardware %}
                         <li>
-                            {{ user_item.item.item_name }}  {{user_item.quantity}} / {{user_item.item.req_quantity}}
+                            <div>
+                                <a href='/increment/{{ user_item.user_items_id }}'>+</a> <a href="/decrement">-</a> <div class="hideout-item-name">{{ user_item.item.item_name }}</div>  
+                            </div>
+                            
+                            <div>{{user_item.quantity}} / {{user_item.item.req_quantity}}</div>
                         </li>
                     {% endfor %}
                 </ul>
@@ -34,7 +28,11 @@
                 <ul>
                     {% for user_item in electronics %}
                     <li>
-                        {{ user_item.item.item_name }}  {{user_item.quantity}} / {{user_item.item.req_quantity}}
+                        <div>
+                            <a href="/increment">+</a> <a href="/decrement">-</a> <div class="hideout-item-name">{{ user_item.item.item_name }}</div>  
+                        </div>  
+                        
+                        <div>{{user_item.quantity}} / {{user_item.item.req_quantity}}</div>
                     </li>
                     {% endfor %}
                 </ul>
@@ -44,7 +42,11 @@
                 <ul>
                     {% for user_item in medical %}
                     <li>
-                        {{ user_item.item.item_name }}  {{user_item.quantity}} / {{user_item.item.req_quantity}}
+                        <div>
+                            <a href="increment">+</a> <a href="decrement">-</a> <div class="hideout-item-name">{{ user_item.item.item_name }}</div>  
+                        </div>  
+                        
+                        <div>{{user_item.quantity}} / {{user_item.item.req_quantity}}</div>
                     </li>
                     {% endfor %}
                 </ul>
@@ -54,7 +56,11 @@
                 <ul>
                     {% for user_item in valuables %}
                     <li>
-                        {{ user_item.item.item_name }}  {{user_item.quantity}} / {{user_item.item.req_quantity}}
+                        <div>
+                            <a href="increment">+</a> <a href="decrement">-</a> <div class="hideout-item-name">{{ user_item.item.item_name }}</div>  
+                        </div>  
+                        
+                        <div>{{user_item.quantity}} / {{user_item.item.req_quantity}}</div>
                     </li>
                     {% endfor %}
                 </ul>

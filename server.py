@@ -88,6 +88,18 @@ def logout():
     logout_user()
     return redirect('/login')
 
+@app.route("/increment/<user_item_id>")
+@login_required
+def increment(user_item_id):
+
+    user_item = User_Items.query.get(user_item_id)
+    old_quantity = user_item.quantity + 1
+    user_item.quantity = old_quantity + 1
+    db.session.add(user_item)
+    db.session.commit()
+    
+    return redirect('/hideout')
+
 @app.route("/hideout")
 def hideout():
 
