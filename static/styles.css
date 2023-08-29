@@ -146,10 +146,27 @@ main h1 {
     align-items: center;
 }
 
-
 .wikitable {
     border: 1px solid #a2a9b1;
     margin: 1em 0;
+}
+
+body > main > table:nth-child(2) > tbody > tr:nth-child(2) > td:nth-child(1) > ul > li > a {
+    color: inherit;
+}
+body > main > table:nth-child(2) > tbody > tr:nth-child(2) > td:nth-child(2) > ul > li > a {
+    color: inherit;
+}
+body > main > table:nth-child(2) > tbody > tr:nth-child(2) > td:nth-child(3) > ul > li > a {
+    color: inherit;
+}
+
+body > main > table:nth-child(2) > tbody > tr:nth-child(4) > td > ul > li > a {
+    color: inherit;
+}
+
+body > main > div > div > table > tbody > tr > td > a {
+    color: inherit;
 }
 /* ARMOR PAGE -------------------------------------------------------------------------- */
 /* QUEST PAGE -------------------------------------------------------------------------- */
