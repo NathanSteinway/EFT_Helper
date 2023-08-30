@@ -15,7 +15,7 @@
                     {% for user_item in hardware %}
                         <li>
                             <div>
-                                <a href='/increment/{{ user_item.user_items_id }}'>+</a> <a href="/decrement">-</a> <div class="hideout-item-name">{{ user_item.item.item_name }}</div>  
+                                <a href='/increment/{{ user_item.user_items_id }}'>+</a> <a href="/decrement/{{ user_item.user_items_id }}">-</a> <div class="hideout-item-name">{{ user_item.item.item_name }}</div>  
                             </div>
                             
                             <div>{{user_item.quantity}} / {{user_item.item.req_quantity}}</div>

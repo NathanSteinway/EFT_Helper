@@ -92,9 +92,25 @@ def logout():
 @login_required
 def increment(user_item_id):
 
-    user_item = User_Items.query.get(user_item_id)
-    old_quantity = user_item.quantity + 1
+    
+    user_item = User_Items.query.filter_by(user_item_id)
+    old_quantity = user_item.quantity
     user_item.quantity = old_quantity + 1
+
+    db.session.add(user_item)
+    db.session.commit()
+    
+    return redirect('/hideout')
+
+@app.route("/decrement/<user_item_id>")
+@login_required
+def decrement(user_item_id):
+
+    
+    user_item = User_Items.query.filter_by(user_item_id)
+    old_quantity = user_item.quantity
+    user_item.quantity = old_quantity - 1
+
     db.session.add(user_item)
     db.session.commit()
     
@@ -122,6 +138,7 @@ def hideout():
     valuables = []
 
     for user_item in current_user.stash:
+        
         if user_item.item.item_category == 'Hardware':
             hardware.append(user_item)
         elif user_item.item.item_category == 'Electronics':
@@ -130,7 +147,7 @@ def hideout():
             medical.append(user_item)
         elif user_item.item.item_category == 'Valuables':
             valuables.append(user_item)
-
+    
     return render_template("hideout.html", 
         hardware=hardware,
         electronics=electronics,
