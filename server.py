@@ -93,7 +93,7 @@ def logout():
 def increment(user_item_id):
 
     
-    user_item = User_Items.query.filter_by(user_item_id)
+    user_item = User_Items.query.get(user_item_id)
     old_quantity = user_item.quantity
     user_item.quantity = old_quantity + 1
 
@@ -107,7 +107,7 @@ def increment(user_item_id):
 def decrement(user_item_id):
 
     
-    user_item = User_Items.query.filter_by(user_item_id)
+    user_item = User_Items.query.get(user_item_id)
     old_quantity = user_item.quantity
     user_item.quantity = old_quantity - 1
 
