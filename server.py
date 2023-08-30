@@ -148,11 +148,19 @@ def hideout():
         elif user_item.item.item_category == 'Valuables':
             valuables.append(user_item)
     
+    def alphabetical(user_item):
+        return user_item.item.item_name
+
+    hardware_sorted = sorted(hardware, key=alphabetical)
+    electronics_sorted = sorted(electronics, key=alphabetical)
+    medical_sorted = sorted(medical, key=alphabetical)
+    valuables_sorted = sorted(valuables, key=alphabetical)
+    
     return render_template("hideout.html", 
-        hardware=hardware,
-        electronics=electronics,
-        medical=medical,
-        valuables=valuables,
+        hardware_sorted=hardware_sorted,
+        electronics_sorted=electronics_sorted,
+        medical_sorted=medical_sorted,
+        valuables_sorted=valuables_sorted,
     )
 
 @app.route("/quests")

@@ -12,7 +12,7 @@
             <div class="loot_category">
                 <h1>Hardware</h1>
                 <ul>
-                    {% for user_item in hardware %}
+                    {% for user_item in hardware_sorted %}
                         <li>
                             <div>
                                 <a href='/increment/{{ user_item.user_items_id }}'>+</a> <a href="/decrement/{{ user_item.user_items_id }}">-</a> <div class="hideout-item-name">{{ user_item.item.item_name }}</div>  
@@ -26,7 +26,7 @@
             <div class="loot_category">
                 <h1>Electronics</h1>
                 <ul>
-                    {% for user_item in electronics %}
+                    {% for user_item in electronics_sorted %}
                     <li>
                         <div>
                             <a href="/increment">+</a> <a href="/decrement">-</a> <div class="hideout-item-name">{{ user_item.item.item_name }}</div>  
@@ -40,7 +40,7 @@
             <div class="loot_category">
                 <h1>Medical</h1>
                 <ul>
-                    {% for user_item in medical %}
+                    {% for user_item in medical_sorted %}
                     <li>
                         <div>
                             <a href="increment">+</a> <a href="decrement">-</a> <div class="hideout-item-name">{{ user_item.item.item_name }}</div>  
@@ -54,7 +54,7 @@
             <div class="loot_category">
                 <h1>Valuables</h1>
                 <ul>
-                    {% for user_item in valuables %}
+                    {% for user_item in valuables_sorted %}
                     <li>
                         <div>
                             <a href="increment">+</a> <a href="decrement">-</a> <div class="hideout-item-name">{{ user_item.item.item_name }}</div>  
