@@ -124,6 +124,8 @@ def hideout():
         return redirect("/login")
 
 
+    # Logic for TarkovAPI here
+
     # hardware = Items.query.filter_by(item_category='Hardware')
     # electronics = Items.query.filter_by(item_category='Electronics')
     # medical = Items.query.filter_by(item_category='Medical')
@@ -165,14 +167,23 @@ def hideout():
 
 @app.route("/quests")
 def quests():
+
+    # Logic for TarkovAPI here
+    
     return render_template("quests.html")
 
 @app.route("/ammo")
 def ammo():
+
+    # Logic for TarkovAPI here
+
     return render_template("ammo.html")
 
 @app.route("/armor")
 def armor():
+
+    # Logic for TarkovAPI here
+
     return render_template("armor.html")
 
 if __name__ == "__main__":
