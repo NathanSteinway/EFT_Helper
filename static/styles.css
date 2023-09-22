@@ -3,6 +3,12 @@
     src:url('../static/bender/Bender/Jovanny\ Lemonad\ -\ Bender.otf')
 }
 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 .flashes {
     text-align: center;
     padding-top: 15px;
@@ -166,58 +172,19 @@ main h1 {
     align-items: center;
 }
 
-.wikitable {
-    border: 1px solid #a2a9b1;
-    margin: 1em 0;
+.ammo-box {
+    border: 5px solid red;
 }
 
-body > main > table:nth-child(2) > tbody > tr:nth-child(2) > td:nth-child(1) > ul > li > a {
-    color: inherit;
-}
-body > main > table:nth-child(2) > tbody > tr:nth-child(2) > td:nth-child(2) > ul > li > a {
-    color: inherit;
-}
-body > main > table:nth-child(2) > tbody > tr:nth-child(2) > td:nth-child(3) > ul > li > a {
-    color: inherit;
+.ammo-details {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 10px;
+    border: 5px solid rgb(73, 73, 255);
 }
 
-body > main > table:nth-child(2) > tbody > tr:nth-child(4) > td > ul > li > a {
-    color: inherit;
+.ammo-info {
+
+    border: 5px solid yellow;
 }
 
-body > main > div > div > table > tbody > tr > td > a {
-    color: inherit;
-}
-/* ARMOR PAGE -------------------------------------------------------------------------- */
-
-/* QUEST PAGE -------------------------------------------------------------------------- */
-
-.quest-main {
-    justify-content: center;
-    align-items: center;
-}
-
-.wikitable {
-    border: 1px solid #a2a9b1;
-    margin: 1em 0;
-
-}
-
-body > main > table > thead > tr > th > a {
-    color: inherit;
-}
-
-body > main > table > tbody > tr > th > a {
-    color: inherit;
-    text-decoration: none;
-}
-
-body > main > table > tbody > tr > td > ul > li > a {
-    color: inherit;
-    text-decoration: none;
-}
-
-body > main > table > tbody > tr > td > ul > li > ul > li > a {
-    color: inherit;
-    text-decoration: none;
-}

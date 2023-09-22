@@ -9,7 +9,7 @@
 
     <!-- Place Jinja2 logic here to read and display data passed from render_template that was acquired from TarkovAPI -->
 
-    <div>
+    <div class="ammo-box">
         <!-- grabs result.data then initializes the items() method -->
         <!-- the items method returns a list of the dictionary's key-value pairs -->
         <!-- in this case, the only one is "items" -->
@@ -20,12 +20,15 @@
                 <!-- That single object is then assigned to "item" -->
                 <!-- In other words, we have accessed the dictionary within "items". -->
             {% for item in value %}
-                <ul>
+            <div class="ammo-details">
+
                     <!-- specifies information -->
-                    <li>{{ item.id }}</li>
-                    <li>{{ item.name }}</li>
-                    <li>{{ item.shortName }}</li>
-                </ul>
+                    <div class="ammo-info">{{ item.id }}</div>
+                    <div class="ammo-info">{{ item.name }}</div>
+                    <div class="ammo-info">{{ item.shortName }}</div> 
+
+            </div>
+
             {% endfor %}
         {% endfor %}
     </div>
