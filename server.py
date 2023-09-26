@@ -185,13 +185,24 @@ def ammo():
         else:
             raise Exception("Query failed to run by returning code of {}. {}".format(response.status_code, query))
 
-
+    # Change this to match eft-ammo parameters
     new_query = """
     {
-        items(name: "m855a1") {
-            id
-            name
-            shortName
+        ammo {
+            item {
+                name
+                    properties {
+                        ... on ItemPropertiesAmmo {
+                            damage
+                            penetrationPower
+                            fragmentationChance
+                            recoilModifier
+                            accuracyModifier
+                            initialSpeed
+                            penetrationChance
+                        }
+                    }
+            }
         }
     }
     """

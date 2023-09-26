@@ -178,13 +178,23 @@ main h1 {
 
 .ammo-details {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-gap: 10px;
+    margin:10px;
+    grid-template-columns: repeat(7, 1fr);
     border: 5px solid rgb(73, 73, 255);
 }
 
 .ammo-info {
+    display:flex;
+    flex-direction: column;
+    text-align: center;
+    margin: 5px;
+}
 
-    border: 5px solid yellow;
+.ammo-info p {
+    margin:5px;
+}
+
+.ammo-info p:first-child {
+    text-decoration: underline;
 }
 

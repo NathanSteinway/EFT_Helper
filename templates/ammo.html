@@ -10,26 +10,38 @@
     <!-- Place Jinja2 logic here to read and display data passed from render_template that was acquired from TarkovAPI -->
 
     <div class="ammo-box">
-        <!-- grabs result.data then initializes the items() method -->
-        <!-- the items method returns a list of the dictionary's key-value pairs -->
-        <!-- in this case, the only one is "items" -->
-        {% for key, value in result.data.items() %}
-            <h3>{key}</h3>
-            <!-- This uses the value defined above, aka the contents of the dictionary within "items" -->
-                <!-- THE CONTENT OF "ITEMS" IS A SINGLE OBJECT -->
-                <!-- That single object is then assigned to "item" -->
-                <!-- In other words, we have accessed the dictionary within "items". -->
-            {% for item in value %}
+        {% for ammunition in result.data.ammo %}
+            <h4>{{ ammunition.item.name }}</h4>
             <div class="ammo-details">
-
-                    <!-- specifies information -->
-                    <div class="ammo-info">{{ item.id }}</div>
-                    <div class="ammo-info">{{ item.name }}</div>
-                    <div class="ammo-info">{{ item.shortName }}</div> 
-
+                <div class="ammo-info">
+                    <p>Damage</p>
+                    <p>{{ ammunition.item.properties.damage }}</p> 
+                </div>
+                <div class="ammo-info">
+                    <p>Penetration Power</p>
+                    <p>{{ ammunition.item.properties.penetrationPower }}</p>
+                </div>
+                <div class="ammo-info">
+                    <p>Fragmentation Chance</p>
+                    <p> {{ ammunition.item.properties.fragmentationChance }}</p>
+                </div>
+                <div class="ammo-info">
+                    <p>Recoil Modifier</p>
+                    <p>{{ ammunition.item.properties.recoilModifier }}</p>
+                </div>
+                <div class="ammo-info">
+                    <p>Accuracy Modifier</p>
+                    <p>{{ ammunition.item.properties.accuracyModifier }}</p>
+                </div>
+                <div class="ammo-info">
+                    <p>Initial Speed</p>
+                    <p>{{ ammunition.item.properties.initialSpeed }}</p>
+                </div>
+                <div class="ammo-info">
+                    <p>Penetration Chance</p>
+                    <p>{{ ammunition.item.properties.penetrationChance }}</p>
+                </div>
             </div>
-
-            {% endfor %}
         {% endfor %}
     </div>
 
