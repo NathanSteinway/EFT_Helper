@@ -10,11 +10,12 @@
     <!-- Place Jinja2 logic here to read and display data passed from render_template that was acquired from TarkovAPI -->
 
     <div class="ammo-box">
+
         {% for ammunition in result.data.ammo %}
-            <h4>{{ ammunition.item.name }}</h4>
+
             <div class="ammo-details">
                 <div class="ammo-info">
-                    <img src="{{ammunition.item.baseImageLink}}"
+                    <img class="baseImg" src="{{ammunition.item.baseImageLink}}" style="width: 75px">
                 </div>
                 <div class="ammo-info">
                     <p>Damage</p>
@@ -27,18 +28,6 @@
                 <div class="ammo-info">
                     <p>Fragmentation Chance</p>
                     <p> {{ ammunition.item.properties.fragmentationChance }}</p>
-                </div>
-                <div class="ammo-info">
-                    <p>Recoil Modifier</p>
-                    <p>{{ ammunition.item.properties.recoilModifier }}</p>
-                </div>
-                <div class="ammo-info">
-                    <p>Accuracy Modifier</p>
-                    <p>{{ ammunition.item.properties.accuracyModifier }}</p>
-                </div>
-                <div class="ammo-info">
-                    <p>Initial Speed</p>
-                    <p>{{ ammunition.item.properties.initialSpeed }}</p>
                 </div>
                 <div class="ammo-info">
                     <p>Penetration Chance</p>

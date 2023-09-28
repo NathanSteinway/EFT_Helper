@@ -197,9 +197,6 @@ def ammo():
                             damage
                             penetrationPower
                             fragmentationChance
-                            recoilModifier
-                            accuracyModifier
-                            initialSpeed
                             penetrationChance
                         }
                     }

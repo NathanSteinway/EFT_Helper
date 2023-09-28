@@ -173,19 +173,19 @@ main h1 {
 }
 
 .ammo-box {
+    display: grid;
+    margin:10px;
+    grid-template-columns: repeat(1, 1fr);
     border: 5px solid red;
 }
 
 .ammo-details {
-    display: grid;
-    margin:10px;
-    grid-template-columns: repeat(7, 1fr);
+display:flex;
     border: 5px solid rgb(73, 73, 255);
 }
 
 .ammo-info {
     display:flex;
-    flex-direction: column;
     text-align: center;
     margin: 5px;
 }
@@ -196,5 +196,9 @@ main h1 {
 
 .ammo-info p:first-child {
     text-decoration: underline;
+}
+
+.baseImg {
+    border: 5px solid rgb(27, 227, 237);
 }
 
