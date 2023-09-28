@@ -191,6 +191,7 @@ def ammo():
         ammo {
             item {
                 name
+                baseImageLink
                     properties {
                         ... on ItemPropertiesAmmo {
                             damage
