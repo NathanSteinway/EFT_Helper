@@ -197,7 +197,8 @@ def ammo():
                             damage
                             penetrationPower
                             fragmentationChance
-                            penetrationChance
+                            accuracyModifier
+                            initialSpeed
                         }
                     }
             }
@@ -206,7 +207,7 @@ def ammo():
     """
 
     result = run_query(new_query)
-    return render_template("ammo.html", result=result)
+    return render_template("ammo.html", ammunition_list=result['data']['ammo'])
 
 @app.route("/armor")
 def armor():

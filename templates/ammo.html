@@ -11,32 +11,36 @@
 
     <div class="ammo-box">
 
-        {% for ammunition in result.data.ammo %}
+        <table>
+            <thead>
+                <tr>
+                    <th>Round</th>
+                    <th>Damage</th>
+                    <th>Penetration</th>
+                    <th>Fragmentation</th>
+                    <th>Accuracy</th>
+                    <th>Speed (M/S)</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for ammunition in ammunition_list %}
+                    <tr>
+                        <td>
+                            
+                            <img class="baseImg" src="{{ammunition.item.baseImageLink}}" style="width: 75px">
+                            <p>{{ammunition.item.name}}</p>
+                        </td>
+                        <td>{{ ammunition.item.properties.damage }}</td>
+                        <td>{{ ammunition.item.properties.penetrationPower }}</td>
+                        <td>{{ ammunition.item.properties.fragmentationChance }}</td>
+                        <td>{{ ammunition.item.properties.accuracyModifier }}</td>
+                        <td>{{ ammunition.item.properties.initialSpeed }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
 
-            <div class="ammo-details">
-                <div class="ammo-info">
-                    <img class="baseImg" src="{{ammunition.item.baseImageLink}}" style="width: 75px">
-                </div>
-                <div class="ammo-info">
-                    <p>Damage</p>
-                    <p>{{ ammunition.item.properties.damage }}</p> 
-                </div>
-                <div class="ammo-info">
-                    <p>Penetration Power</p>
-                    <p>{{ ammunition.item.properties.penetrationPower }}</p>
-                </div>
-                <div class="ammo-info">
-                    <p>Fragmentation Chance</p>
-                    <p> {{ ammunition.item.properties.fragmentationChance }}</p>
-                </div>
-                <div class="ammo-info">
-                    <p>Penetration Chance</p>
-                    <p>{{ ammunition.item.properties.penetrationChance }}</p>
-                </div>
-            </div>
-        {% endfor %}
     </div>
-
 
 </main>
 {% endblock content %}
