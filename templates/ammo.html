@@ -7,10 +7,80 @@
 {% block content %}
 <main class='ammo-main'>
 
-    <!-- Place Jinja2 logic here to read and display data passed from render_template that was acquired from TarkovAPI -->
+    <!-- Look into making maybe this w/ a Jinja loop, it's kind of a lot of stuff to look at -->
+
+
+
+    <div class="btn-container">
+        <div class="btn-box" id="7.62">
+            <button id="myButton">7.62x25mm</button>
+            <button id="myButton">7.62x39mm</button>
+            <button id="myButton">7.62x51mm</button>
+        </div>
+        
+        <div class="btn-box" id="5.56">
+            <button id="myButton">5.56x45mm</button>
+        </div>
+        
+        <div class="btn-box" id="9x">
+            <button id="myButton">9x18mm</button>
+            <button id="myButton">9x19mm</button>
+            <button id="myButton">9x21mm</button>
+            <button id="myButton">9x39mm</button>
+        </div>
+        
+        <div class="btn-box" id="12g">
+            <button id="myButton">12 Gauge Shot</button>
+            <button id="myButton">12 Gauge Slug</button>
+        </div>
+        
+        <div class="btn-box" id="20g">
+            <button id="myButton">20 Gauge</button>
+        </div>
+        
+        <div class="btn-box" id="300">
+            <button id="myButton">.300 BLK</button>
+        </div>
+        
+        <div class="btn-box" id="366">
+            <button id="myButton">.366</button>
+        </div>
+        
+        <div class="btn-box" id="338">
+            <button id="myButton">.338 Lapua Magnum</button>
+        </div>
+    
+        <div class="btn-box" id="357">
+            <button id="myButton">.357 Magnum</button>
+        </div>
+    
+        <div class="btn-box" id="45">
+            <button id="myButton">.45</button>
+        </div>
+    
+        <div class="btn-box" id="23">
+            <button id="myButton">23x75mm</button>
+        </div>
+    
+        <div class="btn-box" id="57">
+            <button id="myButton">5.7x28mm</button>
+        </div>
+    
+        <div class="btn-box" id="46">
+            <button id="myButton">4.6x30mm</button>
+        </div>
+    
+        <div class="btn-box" id="545">
+            <button id="myButton">5.45x39mm</button>
+        </div>
+    
+        <div class="btn-box" id="127">
+            <button id="myButton">12.7x55mm</button>
+        </div>
+    </div>
+    
 
     <div class="ammo-box">
-
         <table>
             <thead>
                 <tr>
@@ -43,4 +113,5 @@
     </div>
 
 </main>
+<script src="{{ url_for('static', filename='scripts.js') }}"></script>
 {% endblock content %}

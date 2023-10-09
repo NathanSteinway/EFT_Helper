@@ -176,6 +176,16 @@ main h1 {
     border: 5px solid red;
 }
 
+.btn-container {
+    display:flex;
+    border: 5px solid orange;
+}
+
+.btn-box {
+    display:flex;
+    border: 5px solid green;
+}
+
 table {
     width: 100%;
     border-collapse: collapse;
