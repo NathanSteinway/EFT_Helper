@@ -176,7 +176,6 @@ def quests():
 @app.route("/ammo")
 def ammo():
 
-
     def run_query(query):
         headers = {"Content-Type": "application/json"}
         response = requests.post('https://api.tarkov.dev/graphql', headers=headers, json={'query': query})
