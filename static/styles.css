@@ -9,6 +9,10 @@
     box-sizing: border-box;
 }
 
+.hidden {
+    visibility: hidden;
+}
+
 .flashes {
     text-align: center;
     padding-top: 15px;

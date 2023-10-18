@@ -1,27 +1,15 @@
-const calibreBtns = document.getElementsByClassName('myButton');
+document.querySelectorAll('.caliberBtn').forEach(button => {
+    button.addEventListener('click', function(event) {
+        const caliber = event.target.value;
 
-for (var i = 0; i < calibreBtns.length; i++) {
-    calibreBtns[i].addEventListener('click', function (event) {
+        console.log(caliber)
 
-        let name = event.target.value
+        document.querySelectorAll('tbody tr').forEach(row => {
+            row.style.display = 'none';
+        });
 
-        fetch('https://api.tarkov.dev/graphql', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'Accept': 'application/json',
-            },
-            body: JSON.stringify({
-                query: `{
-                            items(name: "${name}") {
-                                id
-                                name
-                                shortName
-                            }
-                        }`
-            })
-        })
-            .then(r => r.json())
-            .then(data => console.log('data returned:', data));
-    });
-}
+        document.querySelectorAll(`tbody tr[data-caliber="${caliber}"]`).forEach(row => {
+            row.style.display = '';
+        });
+    })
+})

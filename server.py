@@ -1,4 +1,4 @@
-from flask import Flask, render_template, redirect, flash
+from flask import Flask, render_template, redirect, flash, request, jsonify
 from model import connect_to_db, db, User, Items, User_Items
 from jinja2 import StrictUndefined
 
@@ -174,7 +174,7 @@ def quests():
     return render_template("quests.html")
 
 @app.route("/ammo")
-def ammo():
+def get_ammo():
 
     def run_query(query):
         headers = {"Content-Type": "application/json"}
@@ -193,6 +193,7 @@ def ammo():
                 baseImageLink
                     properties {
                         ... on ItemPropertiesAmmo {
+                            caliber
                             damage
                             penetrationPower
                             fragmentationChance
@@ -206,6 +207,7 @@ def ammo():
     """
 
     result = run_query(new_query)
+    print(result)
     return render_template("ammo.html", ammunition_list=result['data']['ammo'])
 
 @app.route("/armor")
