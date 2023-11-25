@@ -213,9 +213,43 @@ def get_ammo():
 @app.route("/armor")
 def armor():
 
-    # Logic for TarkovAPI here
+    def run_query(query):
+        headers = {"Content-Type": "application/json"}
+        response = requests.post('https://api.tarkov.dev/graphql', headers=headers, json={'query': query})
+        if response.status_code == 200:
+            return response.json()
+        else:
+            raise Exception("Query failed to run by returning code of {}. {}".format(response.status_code, query))
+        
+    new_query = """
+        {
+            items(type: armor) {
+                name
+                baseImageLink
+                properties {
+                    ... on ItemPropertiesArmor {
+                        armorType
+                        class
+                        durability
+                        ergoPenalty
 
-    return render_template("armor.html")
+                        material {
+                            name
+                        }
+
+                        repairCost
+                        speedPenalty
+                        turnPenalty
+                        zones
+                    }
+                }
+            }
+        }
+    """
+
+    result = run_query(new_query)
+    print(result)
+    return render_template("armor.html", armor_list=result['data']['items'])
 
 if __name__ == "__main__":
     connect_to_db(app)

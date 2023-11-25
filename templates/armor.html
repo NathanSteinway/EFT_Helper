@@ -6,5 +6,105 @@
 
 {% block content %}
 <!-- Place Jinja2 logic here to read and display data passed from render_template that was acquired from TarkovAPI -->
-<object data="../static/12.12 Tarkov armor effectiveness - Body Armor.pdf" width="1920px" height="800px"></object>
+<main class='ammo-main'>
+
+    <!-- Commented out for now, as these buttons are still ammo -->
+
+    <!-- <div class="btn-container">
+        <div class="btn-box" id="7.62">
+            <button class="caliberBtn" id="7.62x25mm" value="Caliber762x25TT">7.62x25mm</button>
+            <button class="caliberBtn" id="7.62x39mm" value="Caliber762x39">7.62x39mm</button>
+            <button class="caliberBtn" id="7.62x51mm" value="Caliber762x51">7.62x51mm</button>
+            <button class="caliberBtn" id="7.62x51mm" value="Caliber762x54R">7.62x54R</button>
+        </div>
+        
+        <div class="btn-box" id="5.56">
+            <button class="caliberBtn" id="5.56x45mm" value="Caliber556x45NATO">5.56x45mm</button>
+        </div>
+        
+        <div class="btn-box" id="9x">
+            <button class="caliberBtn" id="9x18mm" value="Caliber9x18PM">9x18mm</button>
+            <button class="caliberBtn" id="9x19mm" value="Caliber9x19PARA">9x19mm</button>
+            <button class="caliberBtn" id="9x21mm" value="Caliber9x21">9x21mm</button>
+            <button class="caliberBtn" id="9x39mm" value="Caliber9x39">9x39mm</button>
+        </div>
+        
+        <div class="btn-box" id="12g">
+            <button class="caliberBtn" id="12GaugeShot" value="Caliber12g">12 Gauge Shot</button>
+            <button class="caliberBtn" id="12GaugeSlug" value="Caliber12g">12 Gauge Slug</button>
+        </div>
+        
+        <div class="btn-box" id="20g">
+            <button class="caliberBtn" id="20Gauge" value="Caliber20g">20 Gauge</button>
+        </div>
+        
+        <div class="btn-box" id="300">
+            <button class="caliberBtn" id=".300 BLK" value="Caliber762x35">.300 BLK</button>
+        </div>
+        
+        <div class="btn-box" id="366">
+            <button class="caliberBtn" id=".366" value="Caliber366TKM">.366</button>
+        </div>
+        
+        <div class="btn-box" id="338">
+            <button class="caliberBtn" id=".338LapuaMagnum" value="Caliber86x70">.338 Lapua Magnum</button>
+        </div>
+    
+        <div class="btn-box" id="357">
+            <button class="caliberBtn" id=".357 Magnum" value="Caliber9x33R">.357 Magnum</button>
+        </div>
+    
+        <div class="btn-box" id="45">
+            <button class="caliberBtn" id=".45" value="Caliber1143x23ACP">.45</button>
+        </div>
+    
+        <div class="btn-box" id="23">
+            <button class="caliberBtn" id="23x75mm" value="Caliber23x75">23x75mm</button>
+        </div>
+    
+        <div class="btn-box" id="57">
+            <button class="caliberBtn" id="5.7x28mm" value="Caliber57x28">5.7x28mm</button>
+        </div>
+    
+        <div class="btn-box" id="46">
+            <button class="caliberBtn" id="4.6x30mm" value="Caliber46x30">4.6x30mm</button>
+        </div>
+    
+        <div class="btn-box" id="545">
+            <button class="caliberBtn" id="5.45x39mm" value="Caliber545x39">5.45x39mm</button>
+        </div>
+    
+        <div class="btn-box" id="127">
+            <button class="caliberBtn" id="12.7x55mm" value="Caliber127x55">12.7x55mm</button>
+        </div>
+    </div> -->
+    
+
+    <div class="ammo-box" id="ammo-box">
+        <table>
+            <thead>
+                <tr>
+                    <th>Round</th>
+                    <th>Damage</th>
+                    <th>Penetration</th>
+                    <th>Fragmentation</th>
+                    <th>Accuracy</th>
+                    <th>Speed (M/S)</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for armor in armor_list %}
+                    <tr>
+                        <td>
+                            <img class="baseImg" src="{{armor.baseImageLink}}" style="width: 75px">
+                        </td>
+                    </tr>
+                {%endfor%}
+            </tbody>
+        </table>
+
+    </div>
+
+</main>
+<!-- script here at end -->
 {% endblock content %}
