@@ -221,9 +221,9 @@ def armor():
         else:
             raise Exception("Query failed to run by returning code of {}. {}".format(response.status_code, query))
         
-    new_query = """
+    armor_query = """
         {
-            items(type: armor) {
+            armorItems: items(type: armor) {
                 name
                 baseImageLink
                 properties {
@@ -244,12 +244,34 @@ def armor():
                     }
                 }
             }
+
+            rigItems: items(type: rig) {
+                name
+                baseImageLink
+                properties {
+                    ... on ItemPropertiesChestRig {
+                        armorType
+                        class
+                        durability
+                        ergoPenalty
+
+                        material {
+                            name
+                        }
+
+                        repairCost
+                        speedPenalty
+                        turnPenalty
+                        zones
+                    }
+                }
+            }
         }
     """
 
-    result = run_query(new_query)
-    print(result)
-    return render_template("armor.html", armor_list=result['data']['items'])
+    result = run_query(armor_query)
+
+    return render_template("armor.html", armor_list=result['data']['armorItems'], rig_list=result['data']['rigItems'])
 
 if __name__ == "__main__":
     connect_to_db(app)
