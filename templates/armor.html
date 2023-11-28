@@ -84,12 +84,12 @@
         <table>
             <thead>
                 <tr>
-                    <th>Round</th>
-                    <th>Damage</th>
-                    <th>Penetration</th>
-                    <th>Fragmentation</th>
-                    <th>Accuracy</th>
-                    <th>Speed (M/S)</th>
+                    <th>Armor</th>
+                    <th>armorType</th>
+                    <th>Material</th>
+                    <th>Class</th>
+                    <th>Durability</th>
+                    <th>Penalties</th>
                 </tr>
             </thead>
             <tbody>
@@ -98,6 +98,31 @@
                         <td>
                             <img class="baseImg" src="{{armor.baseImageLink}}" style="width: 75px">
                         </td>
+
+                        <!-- checks if properties is empty or not -->
+                        {% if armor.properties %}
+                            <td>
+                                {{armor.properties['armorType']}}
+                            </td>
+                            <td>
+                                {{armor.properties['material']['name']}}
+                            </td>
+                            <td>
+                                {{armor.properties['class']}}
+                            </td>
+                            <td>
+                                {{armor.properties['durability']}}
+                            </td>
+                            <td>
+                                <p>ergo: {{armor.properties['ergoPenalty']}}</p>
+                                <p>speed: {{armor.properties['speedPenalty']}}</p>
+                                <p>turn: {{armor.properties['turnPenalty']}}</p>
+                            </td>
+                        {% else %}
+                            <td>
+                                {{"NONE"}}
+                            </td>
+                        {% endif %}
                     </tr>
                 {%endfor%}
             </tbody>

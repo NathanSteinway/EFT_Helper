@@ -213,3 +213,14 @@ tr:nth-child(even) {
 tr:hover {
     cursor: pointer;
 }
+
+/* armor page */
+
+.armor-main {
+    justify-content: center;
+    align-items: center;
+}
+
+.armor-box {
+    border: 5px solid red;
+}
