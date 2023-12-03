@@ -10,6 +10,7 @@
     
     <div class="btn-container">
         <div class="btn-box">
+            <!-- While there are no class 1 armored chest rigs or body armor, there are class 1 helmets, so this buttons stays for now -->
             <button class="armorClass" value="1">1</button>
             <button class="armorClass" value="2">2</button>
             <button class="armorClass" value="3">3</button>
@@ -34,7 +35,7 @@
             </thead>
             <tbody>
                 {% for item in armor_items %}
-                    <tr>
+                    <tr data-armor="{{item.properties['class']}}">
                         <td>
                             <img class="baseImg" src="{{item.baseImageLink}}" style="width: 75px">
                         </td>
@@ -43,15 +44,19 @@
                             <td>
                                 {{item.properties['armorType']}}
                             </td>
+
                             <td>
                                 {{item.properties['material']['name']}}
                             </td>
+
                             <td>
                                 {{item.properties['class']}}
                             </td>
+
                             <td>
                                 {{item.properties['durability']}}
                             </td>
+
                             <td>                     
                                 <p>ergo: {{item.properties['ergoPenalty']}}</p>
                                 <p>speed: {{item.properties['speedPenalty']}}</p>
@@ -82,7 +87,6 @@
                                 <p>speed: {{item.properties['speedPenalty']}}</p>
                                 <p>turn: {{item.properties['turnPenalty']}}</p>
                             </td>
-
 
                         {% endif %}
                     </tr>
