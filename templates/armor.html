@@ -43,12 +43,46 @@
                             <td>
                                 {{item.properties['armorType']}}
                             </td>
+                            <td>
+                                {{item.properties['material']['name']}}
+                            </td>
+                            <td>
+                                {{item.properties['class']}}
+                            </td>
+                            <td>
+                                {{item.properties['durability']}}
+                            </td>
+                            <td>                     
+                                <p>ergo: {{item.properties['ergoPenalty']}}</p>
+                                <p>speed: {{item.properties['speedPenalty']}}</p>
+                                <p>turn: {{item.properties['turnPenalty']}}</p>
+                            </td>
+
 
                         {% elif item.item_type == 'rig' %}
 
                             <td>
                                 {{item.properties['armorType']}}
                             </td>
+
+                            <td>
+                                {{item.properties['material']['name']}}
+                            </td>
+
+                            <td>
+                                {{item.properties['class']}}
+                            </td>
+
+                            <td>
+                                {{item.properties['durability']}}
+                            </td>
+
+                            <td>
+                                <p>ergo: {{item.properties['ergoPenalty']}}</p>
+                                <p>speed: {{item.properties['speedPenalty']}}</p>
+                                <p>turn: {{item.properties['turnPenalty']}}</p>
+                            </td>
+
 
                         {% endif %}
                     </tr>
