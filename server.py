@@ -271,7 +271,39 @@ def armor():
 
     result = run_query(armor_query)
 
-    return render_template("armor.html", armor_list=result['data']['armorItems'], rig_list=result['data']['rigItems'])
+    # Separates data, preps new list
+    armor_list = result['data']['armorItems']
+    rig_list = result['data']['rigItems']
+    combined_list = []
+
+    # Checks whether or not the properties field is populated
+    # If yes, assign item_type w/ value of 'armor'
+    # If no, say so!
+    for armor in armor_list:
+        if armor.get('properties'):
+            armor['item_type'] = 'armor'
+            combined_list.append(armor)
+        else:
+            print('Rig Detected')
+        
+    # Checks the fields contained within properties for null values
+    # If yes, set unarmored_rig to True
+    # If no, assign item_type w/ value of 'rig'
+    for rig in rig_list:
+
+        unarmored_rig = False
+
+        for key, value in rig.get('properties', {}).items():
+            if value is None:
+                unarmored_rig = True
+                break
+
+        if not unarmored_rig:
+            rig['item_type'] = 'rig'
+            combined_list.append(rig)
+
+
+    return render_template("armor.html", armor_items=combined_list)
 
 if __name__ == "__main__":
     connect_to_db(app)

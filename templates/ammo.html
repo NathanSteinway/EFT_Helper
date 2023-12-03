@@ -7,8 +7,6 @@
 {% block content %}
 <main class='ammo-main'>
 
-    <!-- Look into making maybe this w/ a Jinja loop, it's kind of a lot of stuff to look at -->
-
     <div class="btn-container">
         <div class="btn-box" id="7.62">
             <button class="caliberBtn" id="7.62x25mm" value="Caliber762x25TT">7.62x25mm</button>
@@ -111,5 +109,5 @@
     </div>
 
 </main>
-<script src="{{ url_for('static', filename='scripts.js') }}"></script>
+<script src="{{ url_for('static', filename='caliber.js') }}"></script>
 {% endblock content %}
