@@ -224,3 +224,14 @@ tr:hover {
 .armor-box {
     border: 5px solid red;
 }
+
+/* quest page */
+
+.quest-main {
+    justify-content: center;
+    align-items: center;
+}
+
+.quest-box {
+    border: 5px solid red;
+}

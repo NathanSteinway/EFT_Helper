@@ -7,10 +7,38 @@
 {% block content %}
 <main class="quest-main">
 
-    <table>
+    <div class="quest-box" id="quest-box">
+        <table>
+            <thead>
+                <tr>
+                    <th>Trader</th>
+                    <th>Name</th>
+                    <th>Objective</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for quest in quest_list %}
+                    <tr>
+                        <td>
+                            <!-- [0] for testing reasons, remove when loop comes in -->
+                            <img class="baseImg" src="{{quest_list['trader']['imageLink']}}" style="width: 75px">
+                        </td>
 
-    </table>
-    
+
+                            <td>
+                                {{quest_list['name']}}
+                            </td>
+                            <td>
+                                {{quest_list['objectives'][0]['description']}}
+                            </td>
+
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+
 </main>
 
 {% endblock content %}
