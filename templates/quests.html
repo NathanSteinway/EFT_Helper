@@ -21,17 +21,20 @@
                     <tr>
                         <td>
                             <!-- [0] for testing reasons, remove when loop comes in -->
-                            <img class="baseImg" src="{{quest_list['trader']['imageLink']}}" style="width: 75px">
+                            <img class="baseImg" src="{{quest['trader']['imageLink']}}" style="width: 75px">
                         </td>
 
 
                             <td>
-                                {{quest_list['name']}}
-                            </td>
-                            <td>
-                                {{quest_list['objectives'][0]['description']}}
+                                {{quest['name']}}
                             </td>
 
+                            <td>
+                                {% for desc in quest['objectives'] %}
+                                    <p>{{ desc.description }}</p>
+                                {% endfor %}
+                            </td>
+                            
                     </tr>
                 {% endfor %}
             </tbody>

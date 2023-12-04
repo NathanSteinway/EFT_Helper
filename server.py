@@ -193,7 +193,7 @@ def quests():
     """
 
     result = run_query(new_query)
-    print(result)
+    print(result['data']['tasks'])
     return render_template("quests.html", quest_list=result['data']['tasks'])
 
 @app.route("/ammo")
