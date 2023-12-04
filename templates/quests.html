@@ -7,6 +7,13 @@
 {% block content %}
 <main class="quest-main">
 
+    <button class="traderBtn" value="Prapor">Prapor</button>
+    <button class="traderBtn" value="Therapist">Therapist</button>
+    <button class="traderBtn" value="Peacekeeper">Peacekeeper</button>
+    <button class="traderBtn" value="Mechanic">Mechanic</button>
+    <button class="traderBtn" value="Fence">Fence</button>
+    <button class="traderBtn" value="Ragman">Ragman</button>
+
     <div class="quest-box" id="quest-box">
         <table>
             <thead>
@@ -18,7 +25,7 @@
             </thead>
             <tbody>
                 {% for quest in quest_list %}
-                    <tr>
+                    <tr data-quests="{{quest['trader']['name']}}">
                         <td>
                             <!-- [0] for testing reasons, remove when loop comes in -->
                             <img class="baseImg" src="{{quest['trader']['imageLink']}}" style="width: 75px">
@@ -43,5 +50,5 @@
 
 
 </main>
-
+<script src="{{ url_for('static', filename='trader.js') }}"></script>
 {% endblock content %}

@@ -186,6 +186,7 @@ def quests():
                 description
             }
             trader {
+                name
                 imageLink
             }
         }
