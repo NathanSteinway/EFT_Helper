@@ -23,7 +23,7 @@
         {{form.password}}
         {{form.submit}}
     </form>
-    <h2>
+    <h2 class="welcome">
         {% if current_user.is_authenticated %}
             Hi {{ current_user.user_name }}!
         {% endif %}

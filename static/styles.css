@@ -14,6 +14,7 @@
 }
 
 .flashes {
+    width: 100%;
     text-align: center;
     padding-top: 15px;
     list-style-type: none;
@@ -21,19 +22,40 @@
 
 }
 
+.welcome {
+    width: 100%;
+    padding-top: 10px;
+    text-align: center;
+}
+
 body {
     font-family: Bender;
-    background-color: #181818;
+    background-color: #2F2F31;
     color: white;
 }
 
+
 nav {
-    display:flex;
+    color: white;
+    display: flex;
     justify-content: space-between;
+    padding: 1em;
+    align-items: center;
+    background-color: #232627;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    position: relative;
+    z-index: 1000;
 }
 
 nav h1 {
-    padding-left: 15px;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+nav h1 a {
+    text-decoration: none;
+    color: inherit;
+    background-color: transparent;
 }
 
 nav ul {
@@ -42,7 +64,6 @@ nav ul {
     align-items: center;
     text-align: center;
     list-style-type: none;
-    padding-left: 30px;
 }
 
 nav div {
@@ -53,13 +74,18 @@ nav div {
 }
 
 nav ul li a {
-    color:#998765;
-    font-size: xx-large;
-    border-bottom: solid;
-    padding-bottom: 5px;
-    padding-left: 25px;
-    padding-right: 25px;
+    font-size: 1.5em;
+    color: #998765;
     text-decoration: none;
+    margin-right: 1em;
+    padding: 0.5em 1em;
+    transition: background-color 0.3s;
+}
+
+nav ul li a:hover {
+    background-color: #998765;
+    color: black;
+    border-radius: 4px;
 }
 
 .log-stuff {
@@ -88,6 +114,7 @@ nav ul li a {
 
 .login_form {
     text-align: center;
+    padding-top: 15px;
 }
 
 .register_form {
@@ -106,6 +133,26 @@ nav ul li a {
     font-size: larger;
     border-bottom: none;
     text-decoration: none;
+}
+
+.btn-box button {
+    background-color: #998765;
+    color: white;
+    border: 2px solid #181818;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: background-color 0.3s;
+}
+
+.btn-box button:hover {
+    background-color: #181818;
+    color: #998765;
 }
 
 /* HIDEOUT PAGE --------------------------------------------------------------------------- */
@@ -141,6 +188,7 @@ main h1 {
     border-bottom: solid;
     padding-bottom: 25px;
 }
+
 .loot_category ul {
     padding: 0;
 }
@@ -177,17 +225,22 @@ main h1 {
 }
 
 .ammo-box {
-    border: 5px solid red;
+    background-color: #181818;
+    visibility: hidden;
+    border: 5px solid #998765;
 }
 
 .btn-container {
     display:flex;
-    border: 5px solid orange;
+    /* border: 5px solid orange; */
 }
 
 .btn-box {
     display:flex;
-    border: 5px solid green;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: center;
+    /* border: 5px solid green; */
 }
 
 table {
@@ -202,12 +255,16 @@ th, td {
 }
 
 th {
-    border-bottom: 3px solid white;
+    border-bottom: 3px solid #998765;
 }
 
 /* zebra stripes */
-tr:nth-child(even) {
+/* tr:nth-child(even) {
     background-color: #2c2c2c;
+} */
+
+tr {
+    border-bottom: 3px solid #998765;
 }
 
 tr:hover {
@@ -222,8 +279,12 @@ tr:hover {
 }
 
 .armor-box {
-    border: 5px solid red;
+    background-color: #181818;
+    visibility: hidden;
+    border: 5px solid #998765;
 }
+
+
 
 /* quest page */
 
@@ -233,5 +294,7 @@ tr:hover {
 }
 
 .quest-box {
-    border: 5px solid red;
+    background-color: #181818;
+    visibility: hidden;
+    border: 5px solid #998765;
 }

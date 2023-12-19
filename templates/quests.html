@@ -7,12 +7,19 @@
 {% block content %}
 <main class="quest-main">
 
-    <button class="traderBtn" value="Prapor">Prapor</button>
-    <button class="traderBtn" value="Therapist">Therapist</button>
-    <button class="traderBtn" value="Peacekeeper">Peacekeeper</button>
-    <button class="traderBtn" value="Mechanic">Mechanic</button>
-    <button class="traderBtn" value="Fence">Fence</button>
-    <button class="traderBtn" value="Ragman">Ragman</button>
+    <!-- Data for each trader portrait needs to be processed in the backend before being sent here for each button -->
+    <div class="btn-container">
+        <div class="btn-box">
+            <button class="traderBtn" value="Prapor">Prapor</button>
+            <button class="traderBtn" value="Therapist">Therapist</button>
+            <button class="traderBtn" value="Peacekeeper">Peacekeeper</button>
+            <button class="traderBtn" value="Mechanic">Mechanic</button>
+            <button class="traderBtn" value="Fence">Fence</button>
+            <button class="traderBtn" value="Ragman">Ragman</button>
+        </div>
+    </div>
+   
+
 
     <div class="quest-box" id="quest-box">
         <table>
@@ -27,20 +34,18 @@
                 {% for quest in quest_list %}
                     <tr data-quests="{{quest['trader']['name']}}">
                         <td>
-                            <!-- [0] for testing reasons, remove when loop comes in -->
                             <img class="baseImg" src="{{quest['trader']['imageLink']}}" style="width: 75px">
                         </td>
 
+                        <td>
+                            {{quest['name']}}
+                        </td>
 
-                            <td>
-                                {{quest['name']}}
-                            </td>
-
-                            <td>
-                                {% for desc in quest['objectives'] %}
-                                    <p>{{ desc.description }}</p>
-                                {% endfor %}
-                            </td>
+                        <td>
+                            {% for desc in quest['objectives'] %}
+                                <p>{{ desc.description }}</p>
+                            {% endfor %}
+                        </td>
                             
                     </tr>
                 {% endfor %}
